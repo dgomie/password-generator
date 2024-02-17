@@ -1,22 +1,32 @@
 // Assignment code here
 function generatePassword() {
 
+  // Ask user for number of characters
+  var numChars = prompt("How many characters in your password?");
   
-  var numCharacters = prompt("How many characters in your password?");
-  console.log(typeof numCharacters);
-  console.log(`Input = ${numCharacters}`);
-
-  if (numCharacters === null) { 
+// Validate whether user input is a number, and falls between 8-128 characters. If prompt cancelled, escape function.
+  if (numChars === null) { 
+    return;
   }else {
     while (
-    (numCharacters < 8) || 
-    (numCharacters > 128) ||
-    (isNaN(numCharacters))) {
-      numCharacters = window.prompt("Please input a number between 8 and 128");
+    (numChars < 8) || 
+    (numChars > 128) ||
+    (isNaN(numChars))) {
+      numChars = window.prompt("Please input a number between 8 and 128");
     }
   }
 
- 
+  // Ask if user wants lower case characters
+  var lowerChar = window.confirm("Would you like lower case characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+
+  // Ask if user wants upper case characters
+  var upperChar = window.confirm("Would you like upper case characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+
+  // Ask if user wants numeric characters
+  var numericChar = window.confirm("Would you like numeric characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+
+  // Ask if user wants special characters
+  var specialChar = window.confirm("Would you like special characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
 
  
    
