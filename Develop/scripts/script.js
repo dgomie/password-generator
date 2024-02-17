@@ -1,16 +1,22 @@
 // Assignment code here
 function generatePassword() {
 
-  var numCharacters = Number(prompt("How many characters in your password?"));
-  console.log(typeof numCharacters)
-  console.log(`Input = ${numCharacters}`)
+  
+  var numCharacters = prompt("How many characters in your password?");
+  console.log(typeof numCharacters);
+  console.log(`Input = ${numCharacters}`);
 
-  while (
-    (numCharacters < 1) || 
+  if (numCharacters === null) { 
+  }else {
+    while (
+    (numCharacters < 8) || 
     (numCharacters > 128) ||
     (isNaN(numCharacters))) {
-      numCharacters = window.prompt("Please input a number between 1 and 128");
+      numCharacters = window.prompt("Please input a number between 8 and 128");
     }
+  }
+
+ 
 
  
    
