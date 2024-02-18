@@ -6,10 +6,6 @@ function generatePassword() {
     return array[random];
   }
 
-  function randomNumber(x) {
-    var randomNum = Math.floor(Math.random() * x);
-    return randomNum;
-  }
   // Characters object
   var characters = {
     alphabet: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
@@ -20,11 +16,8 @@ function generatePassword() {
   var newPassword = "";
 
   // Testing randomChoice function
-  var randomTest = randomChoice(characters.symbols);
-  console.log(randomTest);
-
-  randomTest = randomNumber(8);
-  console.log(randomTest);
+  // var randomTest = randomChoice(characters.symbols);
+  // console.log(randomTest);
 
   // Ask user for number of characters
   var numChars = prompt("How many characters in your password?");
@@ -74,14 +67,16 @@ function generatePassword() {
     passwordChars.pop();
   }
 
-  // Converting characters to string 
+  // Converting password characters to string 
   for (let i = 0; i < passwordChars.length; i++) {
     newPassword += passwordChars[i]
   }
-  
+
+  // Shuffle string to randomize password
+  var shuffledPassword = newPassword.split('').sort(function(){return 0.5-Math.random()}).join('');
   console.log(passwordChars)
 
-  return newPassword
+  return shuffledPassword
 }
 
 // Get references to the #generate element
