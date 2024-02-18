@@ -15,13 +15,14 @@ function generatePassword() {
 }
   var passwordChars = [];
   var newPassword = "";
+  var exitText = "Your Secure Password";
 
   // Ask user for number of characters needed in password
   var numChars = prompt("How many characters in your password?\n\n(Enter a number between 8-128)");
   
 // Validate whether user input is a number, and falls between 8-128 characters. If prompt cancelled, escape function.
   if (numChars === null) { 
-    return "Your Secure Password";
+    return exitText;
   }else {
     while (
     (numChars < 8) || 
@@ -29,7 +30,7 @@ function generatePassword() {
     (isNaN(numChars))) {
       numChars = window.prompt("Invalid input\n\nPlease enter a number between 8 and 128");
       if (numChars === null) {
-        return "Your Secure Password";
+        return exitText;
       }
     }
   }
@@ -53,7 +54,7 @@ function generatePassword() {
     (!numericChar) &&
     (!specialChar)) {
       window.alert("No character types selected. Please try again.");
-      return "Your Secure Password";
+      return exitText;
   }
   // Adding random characters to passwordChar array based on user prompts
   for (let i = numChars; i > 0;) {
