@@ -1,6 +1,7 @@
 // Assignment code here
 function generatePassword() {
 
+  // randomChoice function takes an array as an argument and returns a random item from the array.
   function randomChoice(array) {
     var random = Math.floor(Math.random() * array.length);
     return array[random];
@@ -14,10 +15,6 @@ function generatePassword() {
 }
   var passwordChars = [];
   var newPassword = "";
-
-  // Testing randomChoice function
-  // var randomTest = randomChoice(characters.symbols);
-  // console.log(randomTest);
 
   // Ask user for number of characters
   var numChars = prompt("How many characters in your password?");
@@ -46,7 +43,7 @@ function generatePassword() {
   // Ask if user wants special characters
   var specialChar = window.confirm("Would you like special characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
   
-   // Validation if all confirm = false
+   // Validation if all confirm prompts = false
   if (
     (!lowerChar) &&
     (!upperChar) &&
@@ -55,7 +52,7 @@ function generatePassword() {
       window.alert("No character types selected. Please try again.");
       return "Your Secure Password";
   }
-  // Adding random characters to array based on user prompts
+  // Adding random characters to passwordChar array based on user prompts
   for (let i = numChars; i > 0;) {
     if (lowerChar) {
       passwordChars.push(randomChoice(characters.alphabet));
@@ -75,7 +72,7 @@ function generatePassword() {
     }
   }
 
-  // Reduce the password characters down to specified amount because the preceding for loop finishes after specified amount. 
+  // Reduce the passwordChars array to specified amount due to the preceding for-loop finishing after specified amount. 
   while (passwordChars.length > numChars) {
     passwordChars.pop();
   }
@@ -85,7 +82,7 @@ function generatePassword() {
     newPassword += passwordChars[i]
    }
 
-  // Shuffle string to randomize password
+  // Shuffle string to randomize password. Code found on StackOverflow
   var shuffledPassword = newPassword.split('').sort(function(){return 0.5-Math.random()}).join('');
   
 
