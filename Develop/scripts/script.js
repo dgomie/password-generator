@@ -46,6 +46,15 @@ function generatePassword() {
   // Ask if user wants special characters
   var specialChar = window.confirm("Would you like special characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
   
+   // Validation if all confirm = false
+  if (
+    (!lowerChar) &&
+    (!upperChar) &&
+    (!numericChar) &&
+    (!specialChar)) {
+      window.alert("No character types selected. Please try again.");
+      return "Your Secure Password";
+  }
   // Adding random characters to array based on user prompts
   for (let i = numChars; i > 0;) {
     if (lowerChar) {
