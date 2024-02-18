@@ -16,8 +16,8 @@ function generatePassword() {
   var passwordChars = [];
   var newPassword = "";
 
-  // Ask user for number of characters
-  var numChars = prompt("How many characters in your password?\n\n(Enter a number between 8-128)");
+  // Ask user for number of characters needed in password
+  var numChars = prompt("How many characters in your password?\n(Enter a number between 8-128)");
   
 // Validate whether user input is a number, and falls between 8-128 characters. If prompt cancelled, escape function.
   if (numChars === null) { 
@@ -46,7 +46,7 @@ function generatePassword() {
   // Ask if user wants special characters
   var specialChar = window.confirm("Would you like special characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
   
-   // Validation if all confirm prompts = false
+   // Validation if all confirmation prompts = false
   if (
     (!lowerChar) &&
     (!upperChar) &&
@@ -75,7 +75,7 @@ function generatePassword() {
     }
   }
 
-  // Reduce the passwordChars array to specified amount due to the preceding for-loop finishing after specified amount. 
+  // Reduce the passwordChars array to specified amount due to the preceding for-loop finishing after specified amount of characters. 
   while (passwordChars.length > numChars) {
     passwordChars.pop();
   }
