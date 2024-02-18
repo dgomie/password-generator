@@ -12,12 +12,12 @@ function generatePassword() {
   }
   // Characters object
   var characters = {
-    lower: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-    upper: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+    alphabet: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
     numbers: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-    symbols: ['!', '#', '$', '%', '&', '(', ')', '*', '+'],
+    symbols: ['~', '!','@', '#', '$', '%', '&', '(', ')','^','-','*', '+'],
 }
-  var newPassword = [];
+  var passwordChars = [];
+  var newPassword = "";
 
   // Testing randomChoice function
   var randomTest = randomChoice(characters.symbols);
@@ -31,7 +31,7 @@ function generatePassword() {
   
 // Validate whether user input is a number, and falls between 8-128 characters. If prompt cancelled, escape function.
   if (numChars === null) { 
-    return;
+    return "Your Secure Password";
   }else {
     while (
     (numChars < 8) || 
@@ -52,24 +52,36 @@ function generatePassword() {
   
   for (let i = numChars; i > 0;) {
     if (lowerChar) {
-      newPassword.push(randomChoice(characters.lower));
+      passwordChars.push(randomChoice(characters.alphabet));
       i--;
     } 
     if (upperChar) {
-      newPassword.push(randomChoice(characters.upper));
+      passwordChars.push(randomChoice(characters.alphabet).toUpperCase());
       i--;
     } 
     if (numericChar) {
-      newPassword.push(randomChoice(characters.numbers));
+      passwordChars.push(randomChoice(characters.numbers));
       i--;
     }
     if (specialChar) {
-      newPassword.push(randomChoice(characters.symbols));
+      passwordChars.push(randomChoice(characters.symbols));
       i--;
     }
   }
 
-  console.log(newPassword)
+  // Reduce the password characters down to specified amount because the preceding for loop finishes after specified amount. 
+  while (passwordChars.length > numChars) {
+    passwordChars.pop();
+  }
+
+  // Converting characters to string 
+  for (let i = 0; i < passwordChars.length; i++) {
+    newPassword += passwordChars[i]
+  }
+  
+  console.log(passwordChars)
+
+  return newPassword
 }
 
 // Get references to the #generate element
