@@ -17,7 +17,7 @@ function generatePassword() {
   var newPassword = "";
 
   // Ask user for number of characters
-  var numChars = prompt("How many characters in your password?\n\nEnter a number between 8-128");
+  var numChars = prompt("How many characters in your password?\n\n(Enter a number between 8-128)");
   
 // Validate whether user input is a number, and falls between 8-128 characters. If prompt cancelled, escape function.
   if (numChars === null) { 
@@ -29,7 +29,7 @@ function generatePassword() {
     (isNaN(numChars))) {
       numChars = window.prompt("Invalid input\nPlease enter a number between 8 and 128");
       if (numChars === null) {
-        return "Your Secure Password"
+        return "Your Secure Password";
       }
     }
   }
@@ -82,7 +82,7 @@ function generatePassword() {
 
   // Converting password characters to string  
   for (let i = 0; i < passwordChars.length; i++) {
-    newPassword += passwordChars[i]
+    newPassword += passwordChars[i];
    }
 
   // Shuffle string to randomize password. Code found on StackOverflow
