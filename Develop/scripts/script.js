@@ -36,13 +36,17 @@ function generatePassword() {
 
   // Ask if user wants lower case characters
   var lowerChar = window.confirm("Would you like lower case characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+  
   // Ask if user wants upper case characters
   var upperChar = window.confirm("Would you like upper case characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+  
   // Ask if user wants numeric characters
   var numericChar = window.confirm("Would you like numeric characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+  
   // Ask if user wants special characters
   var specialChar = window.confirm("Would you like special characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
   
+  // Adding random characters to array based on user prompts
   for (let i = numChars; i > 0;) {
     if (lowerChar) {
       passwordChars.push(randomChoice(characters.alphabet));
@@ -67,17 +71,18 @@ function generatePassword() {
     passwordChars.pop();
   }
 
-  // Converting password characters to string 
+  // Converting password characters to string  
   for (let i = 0; i < passwordChars.length; i++) {
     newPassword += passwordChars[i]
-  }
+   }
 
   // Shuffle string to randomize password
   var shuffledPassword = newPassword.split('').sort(function(){return 0.5-Math.random()}).join('');
-  console.log(passwordChars)
+  
 
-  return shuffledPassword
-}
+  return shuffledPassword;
+
+  }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
