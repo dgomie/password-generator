@@ -17,7 +17,7 @@ function generatePassword() {
   var newPassword = "";
 
   // Ask user for number of characters needed in password
-  var numChars = prompt("How many characters in your password?\n(Enter a number between 8-128)");
+  var numChars = prompt("How many characters in your password?\n\n(Enter a number between 8-128)");
   
 // Validate whether user input is a number, and falls between 8-128 characters. If prompt cancelled, escape function.
   if (numChars === null) { 
@@ -27,7 +27,7 @@ function generatePassword() {
     (numChars < 8) || 
     (numChars > 128) ||
     (isNaN(numChars))) {
-      numChars = window.prompt("Invalid input\nPlease enter a number between 8 and 128");
+      numChars = window.prompt("Invalid input\n\nPlease enter a number between 8 and 128");
       if (numChars === null) {
         return "Your Secure Password";
       }
@@ -35,16 +35,16 @@ function generatePassword() {
   }
 
   // Ask if user wants lower case characters
-  var lowerChar = window.confirm("Would you like lower case characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+  var lowerChar = window.confirm("Would you like lower case characters?\n\n(Click 'OK' for Yes or 'Cancel' for No)");
   
   // Ask if user wants upper case characters
-  var upperChar = window.confirm("Would you like upper case characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+  var upperChar = window.confirm("Would you like upper case characters?\n\n(Click 'OK' for Yes or 'Cancel' for No)");
   
   // Ask if user wants numeric characters
-  var numericChar = window.confirm("Would you like numeric characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+  var numericChar = window.confirm("Would you like numeric characters?\n\n(Click 'OK' for Yes or 'Cancel' for No)");
   
   // Ask if user wants special characters
-  var specialChar = window.confirm("Would you like special characters?\n (Click 'OK' for Yes or 'Cancel' for No)");
+  var specialChar = window.confirm("Would you like special characters?\n\n(Click 'OK' for Yes or 'Cancel' for No)");
   
    // Validation if all confirmation prompts = false
   if (
