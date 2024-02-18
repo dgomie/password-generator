@@ -11,13 +11,13 @@ function generatePassword() {
   var characters = {
     alphabet: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
     numbers: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-    symbols: ['~', '!','@', '#', '$', '%', '&', '(', ')','^','-','*', '+', " ", '"', '"', '.', '/', ':', ';', '>', '<', '=', '?', '_', '|', '{', '}'],
+    symbols: ['~', '!','@', '#', '$', '%', '&', '(', ')','^','-','*', '+', " ", '"', '"', '.', '/', ':', ';', '>', '<', '=', '?', '_', '|', '{', '}', ],
 }
   var passwordChars = [];
   var newPassword = "";
 
   // Ask user for number of characters
-  var numChars = prompt("How many characters in your password?");
+  var numChars = prompt("How many characters in your password?\n\nEnter a number between 8-128");
   
 // Validate whether user input is a number, and falls between 8-128 characters. If prompt cancelled, escape function.
   if (numChars === null) { 
@@ -27,7 +27,10 @@ function generatePassword() {
     (numChars < 8) || 
     (numChars > 128) ||
     (isNaN(numChars))) {
-      numChars = window.prompt("Please input a number between 8 and 128");
+      numChars = window.prompt("Invalid input\nPlease enter a number between 8 and 128");
+      if (numChars === null) {
+        return "Your Secure Password"
+      }
     }
   }
 
